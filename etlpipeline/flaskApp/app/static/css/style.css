@@ -1,0 +1,285 @@
+/* ================= GLOBAL RESET ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;   /* 🔑 CRITICAL FIX */
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: url("/static/images/bg.jpg") no-repeat center center fixed;
+    background-size: cover;
+    overflow-x: hidden;       /* 🔒 prevent sideways scroll */
+}
+
+/* ================= TOP NAVBAR ================= */
+.top-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: black;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+}
+
+.top-nav .logo {
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.top-nav .nav-links {
+    display: flex;
+}
+
+.top-nav .nav-links a {
+    color: white;
+    margin-left: 20px;
+    text-decoration: none;
+}
+
+/* ================= MAIN CONTAINER ================= */
+.container {
+    max-width: 1200px;              /* 🔑 prevents stretching */
+    margin: 110px auto 100px auto;  /* top | left-right | bottom */
+    background: rgba(255, 255, 255, 0.92);
+    padding: 30px;
+    border-radius: 8px;
+}
+
+/* ================= HOME BOX ================= */
+.center-box {
+    text-align: center;
+    padding: 60px;
+}
+
+/* ================= FORMS ================= */
+form input,
+form select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+form button {
+    margin-top: 20px;
+    padding: 12px 25px;
+    cursor: pointer;
+}
+
+/* ================= FOOTER ================= */
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: black;
+    color: white;
+    text-align: center;
+    padding: 12px 0;
+    font-size: 14px;
+    z-index: 1000;
+}
+
+
+/* ================= LOGIN PAGE FIX ================= */
+
+body.login-page {
+    overflow: hidden; /* 🔒 NO SCROLL */
+}
+
+body.login-page .container {
+    margin-top: 0;
+    margin-bottom: 0;
+    background: none;
+    padding: 0;
+}
+
+.login-wrapper {
+    position: fixed;
+    top: 70px;            /* below navbar */
+    bottom: 50px;         /* above footer */
+    left: 0;
+    right: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-card {
+    width: 400px;
+    background: rgba(255, 255, 255, 0.97);
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+}
+
+
+/* ================= HOME PAGE ================= */
+
+.home-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 180px);
+    /* subtract navbar + footer */
+}
+
+.home-card {
+    width: 500px;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 40px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+}
+
+.home-card h2 {
+    margin-bottom: 20px;
+}
+
+.home-card p {
+    margin-bottom: 10px;
+    font-size: 15px;
+    color: #333;
+}
+
+/* ================= BLACK BUTTON ================= */
+
+.btn-black {
+    background: black;
+    color: white;
+    border: none;
+    padding: 12px 28px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-top: 20px;
+}
+
+.btn-black:hover {
+    background: #333;
+}
+
+body.home-page .container {
+    background: none;
+    padding: 0;
+    box-shadow: none;
+}
+
+/* ================= BLACK THEME BUTTON ================= */
+
+.btn-black {
+    background: black;
+    color: white;
+    border: none;
+    padding: 12px 28px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.btn-black:hover {
+    background: #333;
+}
+
+/* ================= PIPELINE HISTORY ================= */
+
+.history-container {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 20px;
+    border-radius: 8px;
+}
+
+/* Header stays fixed */
+.history-header {
+    display: flex;
+    justify-content: space-between; /* 👈 button to right */
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+/* Scrollable table container */
+.history-box {
+    max-height: 420px;
+    overflow-y: auto;      /* vertical scroll */
+    overflow-x: auto;      /* horizontal scroll */
+    border: 1px solid #ccc;
+    background: white;
+    padding: 10px;
+    border-radius: 6px;
+}
+
+/* Table */
+.history-table {
+    width: 100%;
+    min-width: 1400px;   /* forces horizontal scroll */
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+.history-table th,
+.history-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    white-space: nowrap;
+    text-align: left;
+}
+
+/* Zebra rows only (NO sticky header) */
+.history-table tr:nth-child(even) {
+    background: #f5f5f5;
+}
+
+/* ================= DELETE USER ================= */
+
+.form-warning {
+    background: #fff3cd;
+    border: 1px solid #ffeeba;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+
+/* ================= FLASH MESSAGE OVERLAY ================= */
+
+.flash-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    pointer-events: none; /* allow clicking through */
+}
+
+.flash-message {
+    background: white;
+    padding: 20px 30px;
+    border-radius: 6px;
+    font-size: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    pointer-events: auto;
+}
+
+/* Success */
+.flash-message.success {
+    border-left: 5px solid #28a745;
+}
+
+/* Error */
+.flash-message.error {
+    border-left: 5px solid #dc3545;
+}
+

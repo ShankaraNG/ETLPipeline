@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Add User</h2>
+
+<form method="post">
+
+    <label>Username</label>
+    <input
+        type="text"
+        name="username"
+        placeholder="Enter username"
+        required
+    >
+
+    <label>Password</label>
+    <input
+        type="password"
+        name="password"
+        placeholder="Enter password"
+        required
+    >
+
+    <label>Email ID</label>
+    <input
+        type="email"
+        name="email_id"
+        placeholder="Enter email address"
+        required
+    >
+
+    <label>Full Name</label>
+    <input
+        type="text"
+        name="full_name"
+        placeholder="Enter full name"
+        required
+    >
+
+    <button type="submit" class="btn-black">
+        Add User
+    </button>
+
+</form>
+
+{% endblock %}

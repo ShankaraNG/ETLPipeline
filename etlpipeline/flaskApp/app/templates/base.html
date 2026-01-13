@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ETL Tool</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body class="
+{% if request.endpoint == 'login' %}login-page{% endif %}
+{% if request.endpoint == 'home' %}home-page{% endif %}
+">
+
+<!-- ================= TOP NAVBAR ================= -->
+<div class="top-nav">
+    <div class="logo">ETL Tool</div>
+
+    <div class="nav-links">
+        {% if session.get("logged_in") %}
+            <a href="{{ url_for('home') }}">Home</a>
+            <a href="{{ url_for('about') }}">About</a>
+            <a href="{{ url_for('history') }}">Pipeline History</a>
+
+            {% if session.get("role") == "admin" %}
+                <a href="{{ url_for('add_user') }}">Add User</a>
+                <a href="{{ url_for('delete_user') }}">Delete User</a>
+            {% endif %}
+
+            <a href="{{ url_for('logout') }}">Logout</a>
+        {% else %}
+            {% if request.endpoint != 'login' %}
+                <a href="{{ url_for('login') }}">Login</a>
+            {% endif %}
+        {% endif %}
+    </div>
+</div>
+
+<!-- ================= MAIN CONTENT ================= -->
+<div class="container">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    <div class="flash-overlay">
+        {% for category, message in messages %}
+            <div class="flash-message {{ category }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+    {% endwith %}
+
+    {% block content %}{% endblock %}
+</div>
+
+<!-- ================= FOOTER ================= -->
+<div class="footer">
+    © 2026 Shankara N G | ETL Tool
+</div>
+
+</body>
+</html>

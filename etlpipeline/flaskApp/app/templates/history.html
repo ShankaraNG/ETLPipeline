@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="history-container">
+
+    <!-- Header bar (fixed, non-scrollable) -->
+    <div class="history-header">
+        <h2>Pipeline History</h2>
+
+        <a href="{{ url_for('history') }}">
+            <button class="btn-black">Refresh</button>
+        </a>
+    </div>
+
+    <!-- Scrollable content -->
+    <div class="history-box">
+        {% if rows %}
+            <table class="history-table">
+                <thead>
+                    <tr>
+                        {% for col in header %}
+                            <th>{{ col }}</th>
+                        {% endfor %}
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in rows %}
+                        <tr>
+                            {% for cell in row %}
+                                <td>{{ cell }}</td>
+                            {% endfor %}
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>No pipeline history available.</p>
+        {% endif %}
+    </div>
+
+</div>
+
+{% endblock %}

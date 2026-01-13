@@ -1,0 +1,34 @@
+-- Drop table if it already exists (optional)
+BEGIN
+   EXECUTE IMMEDIATE 'DROP TABLE employees';
+EXCEPTION
+   WHEN OTHERS THEN
+      IF SQLCODE != -942 THEN
+         RAISE;
+      END IF;
+END;
+/
+
+-- Create table
+CREATE TABLE employees (
+    emp_id     NUMBER PRIMARY KEY,
+    emp_name   VARCHAR2(50),
+    joined_on  TIMESTAMP
+);
+
+-- Insert test data
+INSERT INTO employees VALUES (1,  'Shankar',  TO_TIMESTAMP('15-12-25 09:12:43 PM', 'DD-MM-RR HH:MI:SS AM'));
+INSERT INTO employees VALUES (41, 'Shankar',  TO_TIMESTAMP('28-12-25 07:31:20 PM', 'DD-MM-RR HH:MI:SS AM'));
+INSERT INTO employees VALUES (42, 'Alice',    TO_TIMESTAMP('18-12-25 07:31:35 PM', 'DD-MM-RR HH:MI:SS AM'));
+INSERT INTO employees VALUES (43, 'Bob',      TO_TIMESTAMP('19-12-25 07:31:35 PM', 'DD-MM-RR HH:MI:SS AM'));
+INSERT INTO employees VALUES (44, 'Charlie',  TO_TIMESTAMP('20-12-25 07:31:35 PM', 'DD-MM-RR HH:MI:SS AM'));
+INSERT INTO employees VALUES (45, 'David',    TO_TIMESTAMP('21-12-25 07:31:35 PM', 'DD-MM-RR HH:MI:SS AM'));
+INSERT INTO employees VALUES (46, 'Eve',      TO_TIMESTAMP('22-12-25 07:31:35 PM', 'DD-MM-RR HH:MI:SS AM'));
+INSERT INTO employees VALUES (47, 'Alice',    TO_TIMESTAMP('18-12-25 07:31:46 PM', 'DD-MM-RR HH:MI:SS AM'));
+INSERT INTO employees VALUES (48, 'Bob',      TO_TIMESTAMP('19-12-25 07:31:46 PM', 'DD-MM-RR HH:MI:SS AM'));
+INSERT INTO employees VALUES (49, 'Charlie',  TO_TIMESTAMP('20-12-25 07:31:46 PM', 'DD-MM-RR HH:MI:SS AM'));
+INSERT INTO employees VALUES (50, 'David',    TO_TIMESTAMP('21-12-25 07:31:46 PM', 'DD-MM-RR HH:MI:SS AM'));
+INSERT INTO employees VALUES (51, 'Eve',      TO_TIMESTAMP('22-12-25 07:31:46 PM', 'DD-MM-RR HH:MI:SS AM'));
+INSERT INTO employees VALUES (52, 'Frank',    TO_TIMESTAMP('26-12-25 07:31:56 PM', 'DD-MM-RR HH:MI:SS AM'));
+
+COMMIT;

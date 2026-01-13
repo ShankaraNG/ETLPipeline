@@ -1,0 +1,145 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Run ETL Pipeline</h2>
+
+<form method="post">
+
+<!-- ================= GENERAL ================= -->
+<h3>General</h3>
+
+<label>Write to File</label>
+<select name="file" id="fileCheck" onchange="toggleFile()">
+    <option value="true">Yes</option>
+    <option value="false">No</option>
+</select>
+
+<div id="finalFileDiv">
+    <input name="finalFileName" placeholder="Final File Name">
+</div>
+
+<hr>
+
+<label>Initial Load</label>
+<select name="initialLoad">
+    <option value="true">Yes</option>
+    <option value="false">No</option>
+</select>
+
+<hr>
+
+<!-- ================= SOURCE DB ================= -->
+<h3>Source Database</h3>
+<input name="dbHost1" placeholder="DB Host" required>
+<input name="port1" placeholder="Port" required>
+<input name="serviceName1" placeholder="Service Name" required>
+<input name="userName1" placeholder="Username" required>
+<input name="password1" type="password" placeholder="Password" required>
+
+<hr>
+
+<!-- ================= TARGET DB ================= -->
+<h3>Target Database</h3>
+<input name="dbHost2" placeholder="DB Host" required>
+<input name="port2" placeholder="Port" required>
+<input name="serviceName2" placeholder="Service Name" required>
+<input name="userName2" placeholder="Username" required>
+<input name="password2" type="password" placeholder="Password" required>
+
+<hr>
+
+<!-- ================= EXTRACTION ================= -->
+<h3>Extraction</h3>
+<input name="selectColumns" placeholder="Select Columns (comma separated)" required>
+<input name="sourceTableName" placeholder="Source Table Name" required>
+
+<hr>
+
+<!-- ================= TARGET ================= -->
+<h3>Target</h3>
+<input name="insertColumns" placeholder="Insert Columns" required>
+<input name="insertTableName" placeholder="Target Table Name" required>
+
+<hr>
+
+<!-- ================= INCREMENTAL ================= -->
+<h3>Incremental Load</h3>
+<select name="incrementalCheck" id="incrementalCheck" onchange="toggleIncremental()">
+    <option value="true">Yes</option>
+    <option value="false">No</option>
+</select>
+
+<div id="incrementalDiv">
+    <input name="tsCheckColumn" placeholder="Timestamp Column">
+</div>
+
+<hr>
+
+<!-- ================= FILTER ================= -->
+<h3>Filter Columns</h3>
+<select name="filterCheck" id="filterCheck" onchange="toggleFilter()">
+    <option value="true">Yes</option>
+    <option value="false">No</option>
+</select>
+
+<div id="filterDiv">
+    <input name="keepOnlyColumnsFromSource"
+           placeholder="Columns to Keep (comma separated)">
+</div>
+
+<hr>
+
+<!-- ================= RENAME ================= -->
+<h3>Rename Columns</h3>
+<select name="renameCheck" id="renameCheck" onchange="toggleRename()">
+    <option value="true">Yes</option>
+    <option value="false">No</option>
+</select>
+
+<div id="renameDiv">
+    <input name="renameFrom" placeholder="Rename From (comma separated)">
+    <input name="renameTo" placeholder="Rename To (comma separated)">
+</div>
+
+<hr>
+
+<!-- ================= NOTIFICATION ================= -->
+<h3>Notification</h3>
+<input name="emaildistributionlist"
+       placeholder="Email Distribution List" required>
+
+<br><br>
+<button type="submit" class="btn-black">Run ETL Pipeline</button>
+
+</form>
+
+<!-- ================= JAVASCRIPT ================= -->
+<script>
+function toggleFile() {
+    document.getElementById("finalFileDiv").style.display =
+        document.getElementById("fileCheck").value === "true" ? "block" : "none";
+}
+
+function toggleIncremental() {
+    document.getElementById("incrementalDiv").style.display =
+        document.getElementById("incrementalCheck").value === "true" ? "block" : "none";
+}
+
+function toggleFilter() {
+    document.getElementById("filterDiv").style.display =
+        document.getElementById("filterCheck").value === "true" ? "block" : "none";
+}
+
+function toggleRename() {
+    document.getElementById("renameDiv").style.display =
+        document.getElementById("renameCheck").value === "true" ? "block" : "none";
+}
+
+/* Initialize on page load */
+toggleFile();
+toggleIncremental();
+toggleFilter();
+toggleRename();
+</script>
+
+{% endblock %}

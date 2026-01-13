@@ -1,0 +1,20 @@
+# Python cache files (exclude everywhere)
+__pycache__/
+**/__pycache__/
+
+# Compiled Python files
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environments
+venv/
+.env/
+.venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS files
+.DS_Store
+Thumbs.db

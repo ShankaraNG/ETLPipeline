@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="home-wrapper">
+    <div class="home-card">
+        <h2>This ETL Tool is for Adhoc or Manual Execution Only</h2>
+
+        <p>
+            If you want to run the ETL on a regular or scheduled basis,<br>
+            please use the batch services.
+        </p>
+
+        <a href="{{ url_for('run_pipeline') }}">
+            <button class="btn-black">Run ETL Pipeline</button>
+        </a>
+    </div>
+</div>
+
+{% endblock %}

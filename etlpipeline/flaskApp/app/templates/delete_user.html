@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Delete User</h2>
+
+<div class="form-warning">
+    This action is permanent. Please confirm user details carefully.
+</div>
+
+<form method="post">
+
+    <label>Username</label>
+    <input
+        type="text"
+        name="username"
+        placeholder="Enter username"
+        required
+    >
+
+    <label>Email ID</label>
+    <input
+        type="email"
+        name="email_id"
+        placeholder="Enter email address"
+        required
+    >
+
+    <label>Full Name</label>
+    <input
+        type="text"
+        name="full_name"
+        placeholder="Enter full name"
+        required
+    >
+
+    <button type="submit" class="btn-black">
+        Delete User
+    </button>
+
+</form>
+
+{% endblock %}
