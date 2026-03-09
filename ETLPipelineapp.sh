@@ -12,7 +12,7 @@
 ## This Script is for Linux Terminal                                                                      ##
 ############################################################################################################
 
-APP_DIR=~/PythonProjects/ETLPipelineTool
+APP_DIR=~/PythonProjects/etlpipeline
 LOG_DIR=$APP_DIR/logs
 LOG_FILE=$LOG_DIR/etl_flaskapp_$(date +%Y%m%d_%H%M%S).log
 
